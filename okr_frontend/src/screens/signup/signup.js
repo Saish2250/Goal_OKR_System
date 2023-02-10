@@ -11,14 +11,8 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
-  const [confirm_password, setConfirm_Password] = useState('');
-  const checkPass=() => {
-    if(password==confirm_password){
-        window.open('_self',"Dashboard.");
-    }else{
-        console.log("Invalid Password");
-    }
-}
+  const [emp_name, setEmp_Name] = useState('');
+
     
   return (
       
@@ -38,12 +32,11 @@ const SignUp = () => {
               <p className='hello' >Registration</p>
               <p className='welcome' >Welcome to the OKR system</p>
               <div className='w-100 pt-2' >
-              <CustomInput type={'text'} className={'my-3'}  placeholder={"Username"} value={username} setValue={setUser} pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"} />
+              <CustomInput type={'text'} className={'my-3'}  placeholder={"Username"} value={username} setValue={setUser} />
+              <CustomInput type={'text'} className={'my-3'}  placeholder={"Employee Name"} value={emp_name} setValue={setEmp_Name} />
                 <CustomInput type={'email'} className={'my-3'}  placeholder={"Email"} value={email} setValue={setEmail} pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"} />
-                <CustomInput type={'password'} className={'my-3'}  placeholder={"Password"} value={password} setValue={setPassword} />
                 <CustomInput type={'tel'} className={'my-3'}  placeholder={"Mobile No"} value={mobile} setValue={setMobile} pattern={"[0-9]{10}"} />
                 <CustomInput type={'password'} className={'my-3'}  placeholder={"Password"} value={password} setValue={setPassword} />
-                <CustomInput type={'password'} className={'my-3'}  placeholder={"Confirm Password"} value={confirm_password} setValue={setConfirm_Password} />
                 <CustomButton className={'mt-5'} title={"Register"} />
 
               </div>
