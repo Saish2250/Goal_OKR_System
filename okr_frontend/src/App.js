@@ -9,6 +9,7 @@ import About from './screens/about/about';
 import ErrorPage from './screens/error/error_page';
 import Signin from './screens/onboarding/signin/signin';
 import CreateTeam from './screens/createTeam/CreateTeam';
+import SignUp from './screens/onboarding/signup/signup';
 
 function App() {
 
@@ -33,6 +34,10 @@ function App() {
     {
       path : '/createTeam',
       element : <CreateTeam />,
+    },
+    {
+      path : '/signup',
+      element : <SignUp />,
     }
   ])
 
