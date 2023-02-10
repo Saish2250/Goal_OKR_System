@@ -1,21 +1,18 @@
 import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
-import Sidebar from '../../components/sidebar/Sidebar'
-import Dashboard from '../../components/dashboard/dashboard';
 import './home.css';
+import DashboardWrapper from '../../components/dashWrapper/DashboardWrapper';
+import { Row, Col } from 'react-bootstrap';
+import { GrFormAdd } from "react-icons/gr";
+import CurrentTasks from '../../components/currentTasks/CurrentTasks';
+import MainDashboard from '../../components/mainDashboard/MainDashboard';
 
 const Home = ({incrementCounter,counter}) => {
 
-  // useEffect(() => {
-  //   incrementCounter();
-  // }, [])
-  
-
   return (
-    <div id='home'>
-      <Sidebar />
-      <Dashboard />
-    </div>
+    <DashboardWrapper>
+      <MainDashboard />
+    </DashboardWrapper>
   )
 }
 

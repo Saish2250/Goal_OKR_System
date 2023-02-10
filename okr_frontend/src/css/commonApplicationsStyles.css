@@ -21,3 +21,15 @@
       color: var(--accent);
       margin-bottom: 0px;
 }
+.cursor-pointer svg{
+      cursor: pointer !important;
+}
+
+.inputwrap{
+      background-color: var(--white) !important;
+      border-radius: 12px;
+}
+
+.textbold{
+      font-weight: bold;
+}

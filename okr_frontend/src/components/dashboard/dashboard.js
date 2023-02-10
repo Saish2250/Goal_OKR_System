@@ -5,19 +5,22 @@ import Weather from '../weather/weather'
 import MainDashboard from '../mainDashboard/MainDashboard'
 import './dashboard.css'
 
-const Dashboard = () => {
+const Dashboard = ({children}) => {
   return (
     <div id="dashboard" >
         <Header />
         <Row className="main-content" >
-          <Col lg={3} className="p-0" >
+          {/* <Col lg={3} className="p-0" >
             <Weather />
-          </Col>
-          <Col lg={9} className="p-0">
-            <MainDashboard />
+          </Col> */}
+          <Col lg={12} className="p-0">
+            <div className='main-dashboard w-100' >
+            {children}
+            </div>
           </Col>
         </Row>
     </div>
+    
   )
 }
 

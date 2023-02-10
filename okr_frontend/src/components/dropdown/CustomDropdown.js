@@ -10,7 +10,7 @@ export const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
     href=""
     ref={ref}
-    className="drp-container px-3 "
+    className="drp-container px-3 w-100"
     onClick={(e) => {
       e.preventDefault();
       onClick(e);

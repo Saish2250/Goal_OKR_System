@@ -1,17 +1,21 @@
 #main-dashboard{
       padding: 4% 5%;
 }
-#main-dashboard .field-text{
+.current{
+      font-weight: bold;
+      font-family: 'Itim','Cursive';
+}
+.field-text{
       color: var(--blurGrey);
 }
-#main-dashboard .task-wrapper :first-child p{
+.task-wrapper :first-child p{
       color: var(--accent);
       font-family: 'Itim','Cursive';
       font-weight: bold;
       font-size: 22px;
       margin-bottom: 0px;
 }
-#main-dashboard .task-wrapper .arrow-wrapper{
+.task-wrapper .arrow-wrapper{
       width: 35px;
       height: 35px;
       border-radius: 5px;
@@ -21,4 +25,5 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
 }

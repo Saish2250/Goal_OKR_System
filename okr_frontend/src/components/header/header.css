@@ -70,11 +70,17 @@
       font-size: 14px;
 }
 #header .header-second .arrow-wrapper{
-      width: 25px;
-      height: 25px;
+      position: relative;
+      font-weight: bold;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       background-color: var(--lightaccent);
       color: var(--white);
       text-align: center;
       padding-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
 }
