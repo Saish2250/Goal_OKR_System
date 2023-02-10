@@ -13,12 +13,12 @@ const Signin = () => {
   return (
     <div id="signin" >
         <div className='login_wrapper' >
-          <div className="left_section" >
+          <div className="left_section d-none d-md-block w-md-50" >
             <p className='welcomeOkr' >Welcome to OKR</p>
             <p className='welcomeOkr' >Platform</p>
             <img className='logo' src={signinlogo} alt="" />
           </div>
-          <div className="right_section p-5">
+          <div className="right_section p-5 w-100 w-md-50">
             <div className='icon pb-3' >
               <VscSignIn size={50} />
             </div>
