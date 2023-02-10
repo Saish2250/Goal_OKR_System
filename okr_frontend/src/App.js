@@ -10,6 +10,10 @@ import ErrorPage from './screens/error/error_page';
 import Signin from './screens/onboarding/signin/signin';
 import CreateTeam from './screens/createTeam/CreateTeam';
 import SignUp from './screens/onboarding/signup/signup';
+import Objectives from './screens/objectives/Objectives';
+import SingleObjectives from './screens/SingleObjectives/SingleObjectives';
+import CreateObjective from './screens/createObjective/CreateObjective';
+import CreateKeyResult from './screens/createKeyresult/CreateKeyResult';
 
 function App() {
 
@@ -38,7 +42,23 @@ function App() {
     {
       path : '/signup',
       element : <SignUp />,
-    }
+    },
+    {
+      path : '/objectives',
+      element : <Objectives />,
+    },
+    {
+      path : '/create-objective',
+      element : <CreateObjective />,
+    },
+    {
+      path : '/objective/:id',
+      element : <SingleObjectives />,
+    },
+    {
+      path : '/objective/createKeyResult',
+      element : <CreateKeyResult />,
+    },
   ])
 
   return (

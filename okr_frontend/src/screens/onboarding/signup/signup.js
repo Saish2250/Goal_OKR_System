@@ -38,7 +38,6 @@ const SignUp = () => {
                 <CustomInput type={'tel'} className={'my-3'}  placeholder={"Mobile No"} value={mobile} setValue={setMobile} pattern={"[0-9]{10}"} />
                 <CustomInput type={'password'} className={'my-3'}  placeholder={"Password"} value={password} setValue={setPassword} />
                 <CustomButton className={'mt-5'} title={"Register"} />
-
               </div>
             </div>
           </div>

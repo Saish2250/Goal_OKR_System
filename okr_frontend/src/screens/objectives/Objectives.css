@@ -1,0 +1,10 @@
+#objectives .singleObj{
+      background-color: var(--white);
+      border-radius: 12px;
+      padding: 20px;
+}
+#objectives .singleObj p{
+      margin-bottom: 0px;
+      font-family: 'Itim', 'Cursive';
+      font-size: 25px;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import './CurrentTask.css'
 import {Row,Col} from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 
 const status = [
     {
@@ -37,9 +38,10 @@ const SingleCurrentTask = ({
     item,
     index
 }) => {
+    const navigate = useNavigate();
     return(
         <Col lg={4} md={6} sm={12} xs={12} >
-            <div className='d-flex align-items-center p-3 singleTask mt-3' >
+            <div className='d-flex align-items-center p-3 singleTask mt-3 cursor-pointer' onClick={()=> navigate('/objectives') }>
                 <div className='day-wrapper' style={{backgroundColor: item.color == 'Red' ? 'var(--lightred)' : 'var(--lightaccent)' }} >
                     <div className="text-center" >
                         <p>T{index + 1}</p>
