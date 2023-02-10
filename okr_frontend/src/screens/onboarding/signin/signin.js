@@ -13,7 +13,7 @@ const Signin = () => {
   return (
     <div id="signin" >
         <div className='login_wrapper' >
-          <div className="left_section d-none d-md-block w-md-50" >
+          <div className="left_section d-none d-lg-block w-lg-50" >
             <p className='welcomeOkr' >Welcome to OKR</p>
             <p className='welcomeOkr' >Platform</p>
             <img className='logo' src={signinlogo} alt="" />
