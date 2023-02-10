@@ -1,0 +1,80 @@
+#header{
+      height: 80px;
+      width: 100%;
+      display: flex;
+}
+#header .header-first{
+      width: 80%;
+      background-color: var(--white);
+      border-bottom-right-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+#header .header-first .logo{
+      font-weight: bold;
+      margin-bottom: 0px;
+      font-size: 20px;
+      font-family: 'Itim', cursive;
+}
+#header .header-first .date-wrap p{
+      margin-bottom: 0px;
+}
+#header .header-first .date-wrap :first-child{
+      color: var(--lightaccent);
+      font-family: 'Itim', cursive;
+      font-weight: bold;
+}
+#header .header-first .date-wrap :last-child{
+      font-size: 14px;
+}
+#header .header-first .noti-icon{
+      margin: 0px 40px;
+      position: relative;
+}
+#header .header-first .noti-count{
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: var(--red);
+      font-size: 12px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      top: -5px;
+      right: -10px;
+}
+#header .header-first .image-avatar img{
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+}
+#header .header-second{
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+#header .header-second .name-part p{
+      margin-bottom: 0px;
+}
+#header .header-second .name-part :first-child{
+      font-family: 'Itim', cursive;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--lightaccent);
+}
+#header .header-second .name-part :last-child{
+      font-size: 14px;
+}
+#header .header-second .arrow-wrapper{
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: var(--lightaccent);
+      color: var(--white);
+      text-align: center;
+      padding-top: 1px;
+}

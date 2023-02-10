@@ -1,0 +1,10 @@
+.customButton{
+      width: 100%;
+      background-color: var(--lightaccent);
+      border-radius: 12px;
+      color: var(--white);
+      padding: 8px 8px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 1px 3px 5px rgba(0, 129, 6, 0.397);
+}

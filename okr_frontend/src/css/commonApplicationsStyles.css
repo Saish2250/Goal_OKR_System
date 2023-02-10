@@ -1,0 +1,23 @@
+:root {
+      --sidebar: #033323;
+      --bluebackground: #2551b3;
+      --background: #f3f1ef;
+      --white: #ffffff;
+      --lightGrey: #e6e6e6;
+      --blurGrey: #838383;
+      --accent: #033323;
+      --lightaccent: #008a35;
+      --bluraccent: #4aa164;
+      --red: #ff0000;
+      --lightred: #ff5858;
+      --yellow: #eccb0c;
+      --blue: #1995fa;
+}
+
+.bigHeading{
+      font-size: 40px;
+      font-weight: 500;
+      font-family: 'Itim', 'cursive';
+      color: var(--accent);
+      margin-bottom: 0px;
+}

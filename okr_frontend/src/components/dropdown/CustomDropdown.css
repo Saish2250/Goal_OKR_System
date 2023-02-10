@@ -1,0 +1,22 @@
+.dropdown .drp-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 190px;
+      padding: 8px;
+      background-color: var(--white);
+      border-radius: 18px;
+      text-decoration: none;
+      color: var(--accent);
+      /* font-family: 'Itim','cursive'; */
+}
+.dropdown .drp-container .arrow-wrappper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25px;
+      height: 25px;
+      color: var(--white);
+      border-radius: 50%;
+      background-color: var(--lightaccent);
+}
