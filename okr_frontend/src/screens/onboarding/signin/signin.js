@@ -26,7 +26,7 @@ const Signin = () => {
               <p className='hello' >Hello Again</p>
               <p className='welcome' >Welcome to the OKR system</p>
               <div className='w-100 pt-2' >
-                <CustomInput type={'text'} className={'my-3'}  placeholder={"Email"} value={email} setValue={setEmail} />
+                <CustomInput type={'text'} className={'my-3'}  placeholder={"Email"} value={email} setValue={setEmail} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
                 <CustomInput type={'password'} className={'my-3'}  placeholder={"Password"} value={password} setValue={setPassword} />
 
                 <CustomButton className={'mt-5'} title={"Login"} />
