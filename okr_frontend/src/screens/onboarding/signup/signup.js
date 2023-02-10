@@ -11,9 +11,10 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
-  const [emp_name, setEmp_Name] = useState('');
+  const [first_name, setFirst_Name] = useState('');
+  const [last_name, setLast_Name] = useState('');
+  const [user_type, setUser_Type] = useState('');
 
-    
   return (
       
       
@@ -33,8 +34,10 @@ const SignUp = () => {
               <p className='welcome' >Welcome to the OKR system</p>
               <div className='w-100 pt-2' >
               <CustomInput type={'text'} className={'my-3'}  placeholder={"Username"} value={username} setValue={setUser} />
-              <CustomInput type={'text'} className={'my-3'}  placeholder={"Employee Name"} value={emp_name} setValue={setEmp_Name} />
-                <CustomInput type={'email'} className={'my-3'}  placeholder={"Email"} value={email} setValue={setEmail} pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"} />
+              <CustomInput type={'text'} className={'my-3'}  placeholder={"First Name"} value={first_name} setValue={setFirst_Name} />
+              <CustomInput type={'text'} className={'my-3'}  placeholder={"Last Name"} value={last_name} setValue={setLast_Name} />
+              <CustomInput type={'text'} className={'my-3'}  placeholder={"User Type"} value={user_type} setValue={setUser_Type} />
+                <CustomInput type={'email'} className={'my-3'}  placeholder={"Email ID"} value={email} setValue={setEmail} pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"} />
                 <CustomInput type={'tel'} className={'my-3'}  placeholder={"Mobile No"} value={mobile} setValue={setMobile} pattern={"[0-9]{10}"} />
                 <CustomInput type={'password'} className={'my-3'}  placeholder={"Password"} value={password} setValue={setPassword} />
                 <CustomButton className={'mt-5'} title={"Register"} />
