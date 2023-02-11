@@ -4,7 +4,10 @@ const initialState = {
   value: 0,
   adminlogintrigger : false,
   adminloginsuccess : {},
-  adminloginerror : {}
+  adminloginerror : {},
+  signuptrigger : false,
+  signupsuccess : {},
+  signuperror : {},
 }
 
 export const app = createSlice({
@@ -29,9 +32,34 @@ export const app = createSlice({
         adminloginsuccess : action.payload
       }
     },
+    setsignuptrigger: (state, action) => {
+      return {
+        ...state,
+        signuptrigger : action.payload
+      }
+    },
+    setsignuperror: (state, action) => {
+      return {
+        ...state,
+        signuperror : action.payload
+      }
+    },
+    setsignupsuccess: (state, action) => {
+      return {
+        ...state,
+        signupsuccess : action.payload
+      }
+    },
   },
 })
 
-export const { setadminlogintrigger, setadminloginerror, setadminloginsuccess } = app.actions
+export const { 
+  setadminlogintrigger, 
+  setadminloginerror, 
+  setadminloginsuccess,
+  setsignuptrigger,
+  setsignuperror,
+  setsignupsuccess
+} = app.actions
 
 export default app.reducer

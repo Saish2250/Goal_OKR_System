@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects'
-import { setadminlogintrigger, setadminloginerror, setadminloginsuccess } from './appredux';
+import { setadminlogintrigger, setadminloginerror, setadminloginsuccess, setsignuperror, setsignupsuccess, setsignuptrigger } from './appredux';
 import Api from "./../services/ApiCaller";
 
 // export function* incrementCounter(action) {
@@ -69,5 +69,30 @@ export function* adminlogin(api, {payload}){
         yield put(setadminloginerror(e));
     } finally{
         yield put(setadminlogintrigger(false));
+    }
+}
+
+export function* signupcalled(api, {payload}){
+    try{
+        yield put(setsignuptrigger(true));
+        yield put(setsignuperror({}));
+        const {email, first_name, last_name, navigation} = payload;
+        const result = yield call(
+            Api.callServer,
+            api.signup,
+            {
+                emailid : email,
+                name : first_name + " " + last_name
+            },
+            false
+        );
+        if(result != null){
+            yield put(setsignupsuccess(result));
+            navigation('/signin');
+        }
+    } catch(e){
+        yield put(setsignuperror(e));
+    } finally{
+        yield put(setsignuptrigger(false));
     }
 }

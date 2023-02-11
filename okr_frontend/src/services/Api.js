@@ -18,6 +18,14 @@ const create = (baseURL = baseUrl) => {
         );
     };
 
+    const signup = (data) => {
+        return apis.post(
+        `/admin/add-user`,
+        data
+        // { headers: { Authorization: `Bearer ${data.token}` } }
+        );
+    };
+
 //   const getMywallets = (data) => {
 //     return apis.get(
 //       `/user/getmywallets`,
@@ -51,6 +59,7 @@ const create = (baseURL = baseUrl) => {
 
   return {
     adminlogin,
+    signup
   };
 };
 export default {
