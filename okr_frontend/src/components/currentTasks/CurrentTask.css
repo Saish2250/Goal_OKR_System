@@ -1,3 +1,7 @@
+#current-task .text-decor{
+      text-decoration: none !important;
+      color: black !important;
+}
 #current-task .singleTask{
       background-color: var(--white);
       border-radius: 15px;
@@ -13,7 +17,7 @@
 }
 #current-task .singleTask .day-wrapper p{
       margin-bottom: 0px;
-      color: var(--lightGrey);
+      color: var(--lightGrey) !important;
       font-weight: bold;
       font-size: 18px;
 }

@@ -5,6 +5,9 @@ import CustomInput from '../../components/CustomInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
 import { CustomToggle, CustomMenu } from '../../components/dropdown/CustomDropdown'
 import { Dropdown } from 'react-bootstrap'
+import { useNavigate} from 'react-router-dom'
+import _ from 'lodash'
+import { connect } from 'react-redux'
 
 const drpOptions = [
     {key:"1", option: "Red" },
@@ -13,13 +16,28 @@ const drpOptions = [
     {key:"4", option: "Pink" }
 ]
 
-const CreateTeam = () => {
+const CreateTeam = ({createTeamm}) => {
+
+    const navigation = useNavigate();
 
     const [eventKey, setEventKey] = useState(null);
     const [event, setEvent] = useState('All Fields');
     const [teamname, setTeamname] = useState('');
-    const [teamcolor, setTeamcolor] = useState('');
+    const [teamcolor, setTeamcolor] = useState('select color');
     const [teamtitle, setTeamtitle] = useState('');
+
+    const createTeam = () => {
+        if(teamname != '' && teamcolor != '' && teamtitle != 'select color'){
+            createTeamm({
+                teamname,
+                teamcolor,
+                teamtitle,
+                navigation
+            })
+        } else{
+            window.alert("Enter all data");
+        }
+    }
 
   return (
     <DashboardWrapper>
@@ -40,10 +58,10 @@ const CreateTeam = () => {
                         {/* <CustomInput placeholder={"Team color"} type={"text"} value={teamcolor} setValue={setTeamcolor} className={'inputwrap mb-4'} /> */}
                         <Dropdown  onSelect={(eventKey, event)=>{
                             setEventKey(eventKey)
-                            setEvent(event.target.innerText)
+                            setTeamcolor(event.target.innerText)
                         }} >
                             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-                            { event }
+                            { teamcolor }
                             </Dropdown.Toggle>
                         
                             <Dropdown.Menu as={CustomMenu}>
@@ -64,7 +82,7 @@ const CreateTeam = () => {
             </Row>
             <Row>
                 <Col lg={3} md={12} xs={12} className="mt-5">
-                    <CustomButton title={"Create team"} />
+                    <CustomButton onPress={createTeam} title={"Create team"} />
                 </Col>
             </Row>
         </>
@@ -72,4 +90,8 @@ const CreateTeam = () => {
   )
 }
 
-export default CreateTeam
+const mapDispatchToProps = (dispatch) => ({
+    createTeamm: (data) => dispatch({type : "createteamcalled", payload : data}),
+  });
+  
+export default connect(null, mapDispatchToProps)(CreateTeam)

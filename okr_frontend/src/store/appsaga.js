@@ -1,5 +1,13 @@
 import { call, put } from 'redux-saga/effects'
-import { setadminlogintrigger, setadminloginerror, setadminloginsuccess, setsignuperror, setsignupsuccess, setsignuptrigger } from './appredux';
+import { 
+    setadminlogintrigger, 
+    setadminloginerror, 
+    setadminloginsuccess, 
+    setsignuperror, 
+    setsignupsuccess, 
+    setsignuptrigger,
+    setGetTeamsSuccess
+} from './appredux';
 import Api from "./../services/ApiCaller";
 
 // export function* incrementCounter(action) {
@@ -94,5 +102,62 @@ export function* signupcalled(api, {payload}){
         yield put(setsignuperror(e));
     } finally{
         yield put(setsignuptrigger(false));
+    }
+}
+
+export function* createTeam(api, {payload}){
+    try{
+        const {teamname, teamcolor, teamtitle, navigation} = payload;
+        const result = yield call(
+            Api.callServer,
+            api.createTeam,
+            {
+                teamname,
+                teamcolor,
+                teamtitle
+            },
+            false
+        );
+        if(result != null){
+            console.log("Hello");
+            navigation('/');
+        }
+    } catch(e){
+    } finally{
+    }
+}
+
+export function* getTeams(api, {payload}){
+    try{
+        const result = yield call(
+            Api.callServer,
+            api.getTeams,
+            {},
+            false
+        );
+        if(result){
+            console.log(result)
+            yield put(setGetTeamsSuccess(result))
+        }
+    } catch(e){
+    } finally{
+    }
+}
+
+export function* createObj(api, {payload}){
+    try{
+        const { teamid, objective } = payload;
+        const result = yield call(
+            Api.callServer,
+            api.createObjective,
+            {
+                teamid,
+                objective,
+                userid: 'c34176ad-ada0-48fd-bf72-463397ff031b'
+            },
+            false
+        );
+    } catch(e){
+    } finally{
     }
 }

@@ -5,6 +5,9 @@ import CustomInput from '../../components/CustomInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
 import { CustomToggle, CustomMenu } from '../../components/dropdown/CustomDropdown'
 import { Dropdown } from 'react-bootstrap'
+import _ from 'lodash'
+import { connect } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 const drpOptions = [
     {key:"1", option: "Red" },
@@ -13,9 +16,21 @@ const drpOptions = [
     {key:"4", option: "Pink" }
 ]
 
-const CreateObjective = () => {
+const CreateObjective = ({createObj}) => {
 
     const [objective, setObjectives] = useState('');
+    const { teamid } = useParams();
+
+    const createObjective = () => {
+        if(objective == ''){
+            window.alert("fiend cannot be empty");
+        } else{
+            createObj({
+                teamid,
+                objective,
+            })
+        }
+    }
 
   return (
     <DashboardWrapper>
@@ -33,7 +48,7 @@ const CreateObjective = () => {
             </Row>
             <Row>
                 <Col lg={3} md={12} xs={12} className="mt-5">
-                    <CustomButton title={"Create objective"} />
+                    <CustomButton onPress={createObjective} title={"Create objective"} />
                 </Col>
             </Row>
         </>
@@ -41,4 +56,8 @@ const CreateObjective = () => {
   )
 }
 
-export default CreateObjective
+const mapDispatchToProps = (dispatch) => ({
+    createObj: (data) => dispatch({type : "createObjcalled", payload : data}),
+});
+
+export default connect(null, mapDispatchToProps)(CreateObjective)

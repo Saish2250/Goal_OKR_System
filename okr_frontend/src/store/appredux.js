@@ -8,6 +8,7 @@ const initialState = {
   signuptrigger : false,
   signupsuccess : {},
   signuperror : {},
+  getTeamsSuccess : []
 }
 
 export const app = createSlice({
@@ -50,6 +51,12 @@ export const app = createSlice({
         signupsuccess : action.payload
       }
     },
+    setGetTeamsSuccess: (state, action) => {
+      return {
+        ...state,
+        getTeamsSuccess : action.payload
+      }
+    },
   },
 })
 
@@ -59,7 +66,8 @@ export const {
   setadminloginsuccess,
   setsignuptrigger,
   setsignuperror,
-  setsignupsuccess
+  setsignupsuccess,
+  setGetTeamsSuccess
 } = app.actions
 
 export default app.reducer

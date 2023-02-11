@@ -4,8 +4,10 @@ import { GrNotification } from "react-icons/gr";
 import { BiLogOut } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import moment from 'moment'
+import _ from 'lodash'
+import { connect } from 'react-redux';
 
-const Header = () => {
+const Header = ({admindata}) => {
   return (
     <div id="header">
         <div className='header-first px-4'>
@@ -33,8 +35,8 @@ const Header = () => {
                 </div>
             </div>
             <div className='name-part' >
-                <p>Udesh Arlekar</p>
-                <p>Web developer</p>
+                <p>{admindata?.admin_name}</p>
+                <p>{admindata?.role}</p>
             </div>
             <div>
                 <div className='arrow-wrapper' >
@@ -46,4 +48,12 @@ const Header = () => {
   )
 }
 
-export default Header
+const mapStateToProps = ({app={}}) => {
+    const admindata = _.get(app, "adminloginsuccess", {});
+    return{
+        admindata
+    }
+}
+
+
+export default connect(mapStateToProps, null)(Header)

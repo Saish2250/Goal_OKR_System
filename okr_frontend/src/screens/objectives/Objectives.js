@@ -5,7 +5,8 @@ import { GrAdd, GrDelete } from "react-icons/gr";
 import { AiFillDelete } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { GrFormAdd } from "react-icons/gr";
-import { Modal } from 'react-bootstrap';
+import {useParams} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const data = [
     {
@@ -22,33 +23,10 @@ const data = [
     },
 ]
 
-// const customStyles = {
-//     content: {
-//       top: '50%',
-//       left: '50%',
-//       right: 'auto',
-//       bottom: 'auto',
-//       marginRight: '-50%',
-//       transform: 'translate(-50%, -50%)',
-//     },
-// };
-
 const Objectives = () => {
     const navigate = useNavigate();
-    // const [modalIsOpen, setIsOpen] = React.useState(true);
+    const { teamid } = useParams();
 
-//   function openModal() {
-//     setIsOpen(true);
-//   }
-
-//   function afterOpenModal() {
-//     // references are now sync'd and can be accessed.
-//     subtitle.style.color = '#f00';
-//   }
-
-//   function closeModal() {
-//     setIsOpen(false);
-//   }
   return (
     <DashboardWrapper>
         <div id='objectives' >
@@ -61,7 +39,7 @@ const Objectives = () => {
             <div>
                     <div className='d-flex align-items-center justify-content-between task-wrapper' >
                         <div><p className="mb-0 current" >All Objectives</p></div>
-                        <div onClick={()=>navigate('/create-objective')} className='arrow-wrapper' ><GrFormAdd /></div>
+                        <Link to={`/create-objective/${teamid}`} ><div onClick={()=>navigate('/create-objective')} className='arrow-wrapper' ><GrFormAdd /></div></Link>
                     </div>
                     {/* <CurrentTasks /> */}
             </div>
@@ -86,25 +64,6 @@ const Objectives = () => {
                     </div>
                 ))
             }
-
-        {/* <Modal
-            isOpen={modalIsOpen}
-            onAfterOpen={afterOpenModal}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-        >
-            <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-            <button onClick={closeModal}>close</button>
-            <div>I am a modal</div>
-            <form>
-                <input />
-                <button>tab navigation</button>
-                <button>stays</button>
-                <button>inside</button>
-                <button>the modal</button> 
-            </form>
-        </Modal> */}
             
         </div>
     </DashboardWrapper>

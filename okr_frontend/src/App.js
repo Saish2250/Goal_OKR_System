@@ -44,11 +44,11 @@ function App() {
       element : <SignUp />,
     },
     {
-      path : '/objectives',
+      path : '/objectives/:teamid',
       element : <Objectives />,
     },
     {
-      path : '/create-objective',
+      path : '/create-objective/:teamid',
       element : <CreateObjective />,
     },
     {

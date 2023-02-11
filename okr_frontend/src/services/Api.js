@@ -26,6 +26,30 @@ const create = (baseURL = baseUrl) => {
         );
     };
 
+    const createTeam = (data) => {
+        return apis.post(
+        `/admin/create-team`,
+        data
+        // { headers: { Authorization: `Bearer ${data.token}` } }
+        );
+    };
+
+    const getTeams = (data) => {
+        return apis.get(
+        `/admin/view-teams`,
+        {}
+        // { headers: { Authorization: `Bearer ${data.token}` } }
+        );
+    };
+
+    const createObjective = (data) => {
+        return apis.post(
+        `/admin/add-objective`,
+        data
+        // { headers: { Authorization: `Bearer ${data.token}` } }
+        );
+    };
+
 //   const getMywallets = (data) => {
 //     return apis.get(
 //       `/user/getmywallets`,
@@ -59,7 +83,10 @@ const create = (baseURL = baseUrl) => {
 
   return {
     adminlogin,
-    signup
+    signup,
+    createTeam,
+    getTeams,
+    createObjective
   };
 };
 export default {
