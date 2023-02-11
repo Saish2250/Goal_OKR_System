@@ -2,9 +2,47 @@
       width: 100%;
       background-color: var(--lightaccent);
       border-radius: 12px;
+      border: 1px solid #91C9FF;
       color: var(--white);
       padding: 8px 8px;
       text-align: center;
       cursor: pointer;
       box-shadow: 1px 3px 5px rgba(0, 129, 6, 0.397);
+      transition: 1s ease-in-out;
+      outline: none;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+
+
+
+
+
+/**.btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #91C9FF;
+  outline: none;
+  
+}**/
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.customButton:hover {
+  transition: 1s ease-in-out;
+  background: #4F95DA;
+}
+
+
