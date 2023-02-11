@@ -7,13 +7,14 @@
 }
 #signup .su_wrapper{
     display: flex;
-    width: 50%;
+    width: 60%;
     background-color: var(--bluebackground);
     border-radius: 15px;
-    height: 80vh;
+    height: 90vh;
     overflow: hidden;
     text-align: center;
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.185);
+    overflow-y: auto;
 }
 #signup .su_wrapper .left_section{
     width: 50%;
@@ -34,6 +35,7 @@
 }
 #signup .su_wrapper .right_section{
     width: 50%;
+    height: 100%;
     background-color: white;
 }
 #signup .su_wrapper .right_section .icon{

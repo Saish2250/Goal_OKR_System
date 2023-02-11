@@ -2,24 +2,36 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: 0,
+  adminlogintrigger : false,
+  adminloginsuccess : {},
+  adminloginerror : {}
 }
 
 export const app = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
+    setadminlogintrigger: (state, action) => {
+      return {
+        ...state,
+        adminlogintrigger : action.payload
+      }
     },
-    decrement: (state) => {
-      state.value -= 1
+    setadminloginerror: (state, action) => {
+      return {
+        ...state,
+        adminloginerror : action.payload
+      }
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    setadminloginsuccess: (state, action) => {
+      return {
+        ...state,
+        adminloginsuccess : action.payload
+      }
     },
   },
 })
 
-export const { increment, decrement, incrementByAmount } = app.actions
+export const { setadminlogintrigger, setadminloginerror, setadminloginsuccess } = app.actions
 
 export default app.reducer

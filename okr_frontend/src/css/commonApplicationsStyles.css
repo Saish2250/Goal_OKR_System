@@ -33,6 +33,13 @@
       background-color: var(--white) !important;
       border-radius: 12px;
 }
+.inputwrap2{
+      background-color: var(--background) !important;
+      border-radius: 12px;
+}
+.inputwrap2 .dropdown .drp-container{
+      background-color: var(--background) !important;
+}
 
 .accent{
       color: var(--lightaccent);

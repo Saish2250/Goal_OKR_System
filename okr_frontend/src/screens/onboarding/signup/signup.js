@@ -4,16 +4,45 @@ import {VscSignIn} from "react-icons/vsc";
 import CustomInput from '../../../components/CustomInput/CustomInput';
 import CustomButton from '../../../components/customButton/CustomButton';
 import signinlogo from '../../../assets/images/sign-in.png'
+import { Dropdown } from 'react-bootstrap';
 import { RiContactsBookLine } from 'react-icons/ri';
+import { CustomToggle, CustomMenu } from '../../../components/dropdown/CustomDropdown';
+
+const drpOptions = [
+  {key:"1", option: "Red" },
+  {key:"2", option: "Blue" },
+  {key:"3", option: "Orange" },
+  {key:"4", option: "Pink" }
+]
 
 const SignUp = () => {
-  const [username, setUser] = useState('');
   const [email, setEmail] = useState('');
-  const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
+  const [conpassword, setConpassword] = useState('');
   const [first_name, setFirst_Name] = useState('');
   const [last_name, setLast_Name] = useState('');
-  const [user_type, setUser_Type] = useState('');
+  const [user_type, setUser_Type] = useState('Select a role');
+  const [eventKey, setEventKey] = useState('');
+
+  const [error, setError] = useState('');
+
+  const signup = () => {
+    if(email == ''){
+      setError('Enter email');
+    } else if(first_name == ''){
+      setError('Enter first name');
+    }  else if(last_name == ''){
+      setError('Enter last name');
+    } else if(password == ''){
+      setError('Enter password');
+    } else if(password != conpassword){
+      setError('password does not match');
+    } else if(user_type == 'Select a role'){
+      setError('select role');
+    } else{
+      console.log("Succes")
+    }
+  }
 
   return (
       
@@ -25,22 +54,42 @@ const SignUp = () => {
             <p className='welcomeOkr' >Platform</p>
             <img className='logo' src={signinlogo} alt="" />
           </div>
-          <div className="right_section p-5 w-100 w-md-50">
-            <div className='icon pb-3' >
+          <div className="right_section px-5 py-3 w-100 w-md-50">
+            <div className='icon pb-2' >
               <VscSignIn size={50} />
             </div>
             <div className='suSection' >
               <p className='hello' >Registration</p>
               <p className='welcome' >Welcome to the OKR system</p>
-              <div className='w-100 pt-2' >
-              <CustomInput type={'text'} className={'my-3'}  placeholder={"Username"} value={username} setValue={setUser} />
-              <CustomInput type={'text'} className={'my-3'}  placeholder={"First Name"} value={first_name} setValue={setFirst_Name} />
-              <CustomInput type={'text'} className={'my-3'}  placeholder={"Last Name"} value={last_name} setValue={setLast_Name} />
-              <CustomInput type={'text'} className={'my-3'}  placeholder={"User Type"} value={user_type} setValue={setUser_Type} />
+              <div className='w-100 pt-1' >
+                <CustomInput type={'text'} className={'my-3'}  placeholder={"First Name"} value={first_name} setValue={setFirst_Name} />
+                <CustomInput type={'text'} className={'my-3'}  placeholder={"Last Name"} value={last_name} setValue={setLast_Name} />
+                <div className={'inputwrap2 mb-4 w-100'} >
+                <Dropdown  onSelect={(eventKey, event)=>{
+                    setEventKey(eventKey)
+                    setUser_Type(event.target.innerText)
+                }} >
+                    <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+                    { user_type }
+                    </Dropdown.Toggle>
+                
+                    <Dropdown.Menu as={CustomMenu}>
+                        {
+                            drpOptions.map((item)=>
+                                <Dropdown.Item active={eventKey == item.key ? true : false} eventKey={item.key}>{item.option}</Dropdown.Item>
+                            )
+                        }
+                    </Dropdown.Menu>
+                </Dropdown> 
+                </div>
+                {/* <CustomInput type={'text'} className={'my-3'}  placeholder={"User Type"} value={user_type} setValue={setUser_Type} /> */}
                 <CustomInput type={'email'} className={'my-3'}  placeholder={"Email ID"} value={email} setValue={setEmail} pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"} />
-                <CustomInput type={'tel'} className={'my-3'}  placeholder={"Mobile No"} value={mobile} setValue={setMobile} pattern={"[0-9]{10}"} />
                 <CustomInput type={'password'} className={'my-3'}  placeholder={"Password"} value={password} setValue={setPassword} />
-                <CustomButton className={'mt-5'} title={"Register"} />
+                <CustomInput type={'password'} className={'my-3'}  placeholder={"Confirm Password"} value={conpassword} setValue={setConpassword} />
+                
+                <span style={{color : 'red'}}>{error}</span>
+                
+                <CustomButton onPress={signup} className={'mt-3'} title={"Register"} />
               </div>
             </div>
           </div>
